@@ -7,43 +7,76 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            div{
+                width: 50%;
+                padding: 30px;
+                margin: auto;
+            }
+            table{
+                padding: 12px;
+            }
+            th, td {
+                text-align: center;
+                border: 1px solid black; 
+                padding: 8px;
+            }
         </style>
     </head>
     
     <body>
-        <div id="calender" border="2">
+        <div id="calender">
         </div>
         <script>
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             var table="";
             for(let k=0;k<12;k++)
             {
-                draw_calender(months[k].substring(0,3));
+                draw_calender(months[k].substring(0,3),2024);
             }
-            
-            function draw_calender(mon)
+
+            // Function to draw calender
+            function draw_calender(mon,year)
             {
                 table+="<table border ='2'><thead><th colspan='7'>";
-                var start_date = new Date("01-"+mon+"-2024");
+                var start_date = new Date("01-"+mon+"-"+year);
                 var last_date = new Date(start_date.getFullYear(), start_date.getMonth() + 1, 0);//fetch last date of the month Date("Year", "next mont ", 0 ["if we use this we get last day of previous month"])
                 var day = start_date.getDay();
                 let day_element=0;
                 let i=0;
-                table+=months[start_date.getMonth()]+"</th></thead><tbody><tr>";
-                for(let week=0;week<6;week++)
+                table+=months[start_date.getMonth()]+", "+year+"</th></thead><tbody><tr>"; // write month name as a heading
+                var days_of_week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                for(var d in days_of_week) // write all the week names 
+                {
+                    if(d==0){
+                        table+="<td style='color: red;'>"+days_of_week[d]+"</td>";
+                    }
+                    else{
+                        table+="<td>"+days_of_week[d]+"</td>";
+                    }
+                }
+
+                for(let week=0;week<6;week++)// Print dates according to their week
                 {
                     table+="<tr>";
                     for(let j=0;j<7;j++)
                     {
                         if(i>=day)
                         {
-                            if(day_element<last_date.getDate())
+                            if(day_element<last_date.getDate())//check if the date is within the range of last date
                             {
                                 day_element++;
-                                table+="<td>"+day_element+"</td>";
+                                if(j==0){// j=0 means it's a sunday so give the text red color
+                                    table+="<td style='color: red;'>"+day_element+"</td>";
+                                }
+                                else{   //else normal color
+                                    table+="<td>"+day_element+"</td>";
+                                }
                             }
+
+                            //if the date is out side the range then do nothing
+
                         }
-                        else
+                        else // leave blank columns if the date not starts from first column
                         {
                             table+="<td></td>";
                         }
@@ -53,7 +86,7 @@
                 }
                 table+="</tbody></table>";
             }
-            document.getElementById("calender").innerHTML =table;
+            document.getElementById("calender").innerHTML =table; //grab calender ID and create all the tables there
         </script>
     </body>
 </html>
