@@ -6,32 +6,53 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        </style>
     </head>
+    
     <body>
-        <table id="calender">
-        </table>
+        <div id="calender" border="2">
+        </div>
         <script>
-            var table="<tr>";
-            var date = new Date("01-Jan-2024");
-            var day = date.getDay();
-            for(let i=0;i<= 31;i++)
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var table="";
+            for(let k=0;k<12;k++)
             {
-                if(i>=day)
-                {
-                    if(i%7==6)
-                    {
-                        table += "<td>"+i+"</td>"+"</tr><tr>"; 
-                    }
-                    else{
-                        
-                        table += "<td>"+i+"</td>";
-                    }
-                }
-                else{
-                    table+="<td>$</td>"
-                }
+                draw_calender(months[k].substring(0,3));
             }
-            table +="</tr>";
+            
+            function draw_calender(mon)
+            {
+                table+="<table border ='2'><thead><th colspan='7'>";
+                var start_date = new Date("01-"+mon+"-2024");
+                var last_date = new Date(start_date.getFullYear(), start_date.getMonth() + 1, 0);//fetch last date of the month Date("Year", "next mont ", 0 ["if we use this we get last day of previous month"])
+                var day = start_date.getDay();
+                let day_element=0;
+                let i=0;
+                table+=months[start_date.getMonth()]+"</th></thead><tbody><tr>";
+                for(let week=0;week<6;week++)
+                {
+                    table+="<tr>";
+                    for(let j=0;j<7;j++)
+                    {
+                        if(i>=day)
+                        {
+                            if(day_element<last_date.getDate())
+                            {
+                                day_element++;
+                                table+="<td>"+day_element+"</td>";
+                            }
+                        }
+                        else
+                        {
+                            table+="<td></td>";
+                        }
+                        i++;
+                    } 
+                    table +="</tr>";
+                }
+                table+="</tbody></table>";
+            }
             document.getElementById("calender").innerHTML =table;
         </script>
     </body>
