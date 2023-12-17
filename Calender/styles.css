@@ -1,0 +1,65 @@
+div{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 30px;
+    margin: auto;
+}
+table{
+    padding: 12px;
+    background-color: antiquewhite;
+}
+th, td {
+    text-align: center;
+    border: 1px solid black; 
+    padding: 8px;
+    background-color: aliceblue;
+}
+th{
+    font-size: larger;
+    font-style:italic;
+    font-weight: bold;
+    background-color: aqua;
+}
+.weekdays{
+    background-color: beige;
+    font-size: medium;
+    font-style:italic;
+    font-weight: bold;
+    padding: auto;
+}
+.sunday
+{
+    color: red;
+    background-color: rgb(249, 202, 202);
+}
+
+@media screen and (max-width: 600px) {
+    div{
+        grid-template-columns: repeat(2,1fr);
+        padding: 15px;
+    }
+    th,td{
+        font-size: small;
+        padding: 6px;
+    }
+}
+@media screen and (min-width: 601px)and(max-width:1024px){
+    div{
+        grid-template-columns: repeat(3,1fr);
+        padding: 15px;
+    }
+    th,td{
+        font-size: large;
+        padding: 8px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    div{
+        grid-template-columns: repeat(4,1fr);
+        padding: 20px;
+    }
+    th,td{
+        font-size: larger;
+        padding: auto;
+    }
+}
