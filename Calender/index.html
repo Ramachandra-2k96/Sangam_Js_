@@ -8,30 +8,82 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             div{
-                width: 50%;
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
                 padding: 30px;
                 margin: auto;
             }
             table{
                 padding: 12px;
+                background-color: antiquewhite;
             }
             th, td {
                 text-align: center;
                 border: 1px solid black; 
                 padding: 8px;
+                background-color: aliceblue;
+            }
+            th{
+                font-size: larger;
+                font-style:italic;
+                font-weight: bold;
+                background-color: aqua;
+            }
+            .weekdays{
+                background-color: beige;
+                font-size: medium;
+                font-style:italic;
+                font-weight: bold;
+                padding: auto;
+            }
+            .sunday
+            {
+                color: red;
+                background-color: rgb(249, 202, 202);
+            }
+            
+
+            @media screen and (max-width: 600px) {
+                div{
+                    grid-template-columns: repeat(2,1fr);
+                    padding: 15px;
+                }
+                th,td{
+                    font-size: small;
+                    padding: 6px;
+                }
+            }
+            @media screen and (min-width: 601px)and(max-width:1024px){
+                div{
+                    grid-template-columns: repeat(3,1fr);
+                    padding: 15px;
+                }
+                th,td{
+                    font-size: large;
+                    padding: 8px;
+                }
+            }
+            @media screen and (min-width: 1024px) {
+                div{
+                    grid-template-columns: repeat(4,1fr);
+                    padding: 20px;
+                }
+                th,td{
+                    font-size: larger;
+                    padding: auto;
+                }
             }
         </style>
     </head>
-    
     <body>
         <div id="calender">
         </div>
         <script>
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             var table="";
-            for(let k=0;k<12;k++)
+            for(let k=0;k<12;k++)//call the function 12 times for 12 months
             {
-                draw_calender(months[k].substring(0,3),2024);
+                draw_calender(months[k].substring(0,3),2024);//Pass first 3 letters of every elements
             }
 
             // Function to draw calender
@@ -48,13 +100,12 @@
                 for(var d in days_of_week) // write all the week names 
                 {
                     if(d==0){
-                        table+="<td style='color: red;'>"+days_of_week[d]+"</td>";
+                        table+="<td class='sunday weekdays'>"+days_of_week[d]+"</td>";
                     }
                     else{
-                        table+="<td>"+days_of_week[d]+"</td>";
+                        table+="<td class='weekdays'>"+days_of_week[d]+"</td>";
                     }
                 }
-
                 for(let week=0;week<6;week++)// Print dates according to their week
                 {
                     table+="<tr>";
@@ -66,19 +117,22 @@
                             {
                                 day_element++;
                                 if(j==0){// j=0 means it's a sunday so give the text red color
-                                    table+="<td style='color: red;'>"+day_element+"</td>";
+                                    table+="<td class='sunday'>"+day_element+"</td>";
                                 }
                                 else{   //else normal color
                                     table+="<td>"+day_element+"</td>";
                                 }
                             }
-
                             //if the date is out side the range then do nothing
-
                         }
                         else // leave blank columns if the date not starts from first column
                         {
-                            table+="<td></td>";
+                            if(j==0){// j=0 means it's a sunday so give the text red color
+                                    table+="<td class='sunday'></td>";
+                                }
+                            else{
+                                table+="<td></td>";
+                            }
                         }
                         i++;
                     } 
