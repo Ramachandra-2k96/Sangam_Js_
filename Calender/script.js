@@ -14,7 +14,6 @@ function start()
 // Function to draw calender
 function draw_calender(mon,year)
 {
-    console.log("called with value"+mon+year);
     table+="<table border ='2'><thead><th colspan='7'>";
     var start_date = new Date("01-"+mon+"-"+year);
     var last_date = new Date(start_date.getFullYear(), start_date.getMonth() + 1, 0);//fetch last date of the month Date("Year", "next mont ", 0 ["if we use this we get last day of previous month"])
