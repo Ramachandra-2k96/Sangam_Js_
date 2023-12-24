@@ -24,7 +24,7 @@ button {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #3498db;
     color: white;
     border: none;
     border-radius: 5px;
@@ -35,12 +35,11 @@ button:hover {
 }
 
 .file-input-container {
-    position: relative;
+    margin: -20px;
     display: inline-block;
 }
 
 .custom-file-input {
-    display: inline-block;
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
@@ -52,8 +51,6 @@ button:hover {
 
 #fileinput {
     position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0;
     cursor: pointer;
 }
