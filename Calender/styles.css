@@ -1,6 +1,6 @@
 div{
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(4,1fr);
     padding: 30px;
     margin: auto;
 }
@@ -36,6 +36,7 @@ button:hover {
 
 .file-input-container {
     margin: -20px;
+    position: relative;
     display: inline-block;
 }
 
@@ -51,6 +52,8 @@ button:hover {
 
 #fileinput {
     position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
     cursor: pointer;
 }
