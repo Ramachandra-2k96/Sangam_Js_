@@ -30,7 +30,13 @@
             <option value="es">Spanish</option>
             <option value="de">German</option>
         </select>
-        <button onclick="start()">Submit</button>
+        <br>
+        <div class="file-input-container">
+            <label class="custom-file-input" for="fileinput">Choose Holiday File</label>
+            <input type="file" id="fileinput" />
+        </div>
+        <br>        
+        <button onclick="start()">Construct Calender</button>
         <div id="calender">
         </div>
         <script src="./script.js"></script>

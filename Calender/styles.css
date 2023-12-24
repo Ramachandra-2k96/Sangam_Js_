@@ -1,6 +1,6 @@
 div{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(1,1fr);
     padding: 30px;
     margin: auto;
 }
@@ -8,10 +8,63 @@ table{
     padding: 12px;
     background-color: antiquewhite;
 }
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.file-input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-file-input {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#fileinput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
 th, td {
     text-align: center;
     border: 1px solid black; 
-    padding: 8px;
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 23px;
+    max-height: 23px;
     background-color: aliceblue;
 }
 th{
@@ -35,7 +88,6 @@ th{
 
 @media screen and (max-width: 600px) {
     div{
-        grid-template-columns: repeat(1,1fr);
         padding: 10px;
     }
     th,td{
@@ -45,7 +97,6 @@ th{
 }
 @media screen and (min-width: 601px)and(max-width:1024px){
     div{
-        grid-template-columns: repeat(2,1fr);
         padding: 15px;
     }
     th,td{
@@ -55,7 +106,6 @@ th{
 }
 @media screen and (min-width: 1024px) {
     div{
-        grid-template-columns: repeat(4,1fr);
         padding: 20px;
     }
     th,td{
