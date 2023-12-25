@@ -137,7 +137,7 @@ function draw_Calendar(mon, year, lang, holiday, dates)
         table+="<br><br>";
     }else if(mon =='Nov')
     {
-        table+="<br><br><br>";
+        table+="<br><br>";
         console.log("Nov");
     }
     else if(mon =='Dec')
