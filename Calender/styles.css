@@ -1,14 +1,15 @@
 div{
     display: grid;
     grid-template-columns: repeat(1,0.5fr);
-    padding: 30px;
     margin: auto;
     justify-content: center;
+    padding-top: 10px;
 }
 table{
     padding: 12px;
     background-color: antiquewhite;
     width: 90%;
+    
 }
 label {
     display: block;

@@ -81,7 +81,7 @@ function start()
 // Function to draw Calendar
 function draw_Calendar(mon, year, lang, holiday, dates)
 {
-    table+="<table border ='2'><thead><th colspan='7'>";
+    table+="<br><br><table border ='2'><thead><th colspan='7'>";
     var start_date = new Date("01-" + mon + "-" + year);
     var last_date = new Date(start_date.getFullYear(), start_date.getMonth() + 1, 0);//fetch last date of the month Date("Year", "next mont ", 0 ["if we use this we get last day of previous month"])
     var day = start_date.getDay();
@@ -132,7 +132,23 @@ function draw_Calendar(mon, year, lang, holiday, dates)
         table +="</tr>";
     }
     table+="</tbody></table>";
-    table+='<div style="page-break-after: always;"></div>'
+    if(mon =="Apr")
+    {
+        table+="<br><br>";
+    }else if(mon =='Nov')
+    {
+        table+="<br><br><br>";
+        console.log("Nov");
+    }
+    else if(mon =='Dec')
+    {
+        table+="";
+        console.log("Dec");
+    }
+    else{
+        table+="<br><br><br><br><br>";
+    }
+    
     
 }
 function convertToPDF() {
@@ -144,8 +160,8 @@ function convertToPDF() {
         margin: 10,
         filename: 'calendar.pdf',
         image: { type: 'jpeg', quality: 1 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        html2canvas: { scale: 3 },
+        jsPDF: { unit: 'mm', format: [250,140], orientation: 'landscape' }
     });
 
     // Trigger the PDF generation and download
