@@ -1,4 +1,8 @@
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const months = [];
+for (let i = 0; i < 12; i++) {
+    const monthName = new Date(0, i).toLocaleString('en-US', { month: 'long' }); // This is generated in English because i ma using this in Date time object inside function and that support only English like (Jan,Feb..etc)
+    months.push(monthName);//add month nme to array
+}
 var table="";
 let my_map = new Map();
 
@@ -38,14 +42,14 @@ function start()
       {
         if(my_map.has(months[k].substring(0,3)))
         {
-            draw_calender(months[k].substring(0,3), year, lang, holiday , my_map.get(months[k].substring(0,3)));//Pass first 3 letters of every elements
+            draw_Calendar(months[k].substring(0,3), year, lang, holiday , my_map.get(months[k].substring(0,3)));//Pass first 3 letters of every elements
         }
         else
         {
-            draw_calender(months[k].substring(0,3), year, lang, holiday , []);//Pass first 3 letters of every elements
+            draw_Calendar(months[k].substring(0,3), year, lang, holiday , []);//Pass first 3 letters of every elements
         } 
       }
-      document.getElementById("calender").innerHTML =table; //grab calender ID and create all the tables there
+      document.getElementById("Calendar").innerHTML =table; //grab Calendar ID and create all the tables there
     };
         file_reader.readAsText(f.files[0]);
     }
@@ -64,18 +68,18 @@ function start()
       {
         if(my_map.has(months[k].substring(0,3)))
         {
-            draw_calender(months[k].substring(0,3), year, lang, holiday , my_map.get(months[k].substring(0,3)));//Pass first 3 letters of every elements
+            draw_Calendar(months[k].substring(0,3), year, lang, holiday , my_map.get(months[k].substring(0,3)));//Pass first 3 letters of every elements
         }
         else
         {
-            draw_calender(months[k].substring(0,3), year, lang, holiday , []);//Pass first 3 letters of every elements
+            draw_Calendar(months[k].substring(0,3), year, lang, holiday , []);//Pass first 3 letters of every elements
         } 
       }
-      document.getElementById("calender").innerHTML =table; //grab calender ID and create all the tables there
+      document.getElementById("Calendar").innerHTML =table; //grab Calendar ID and create all the tables there
     }
 }
-// Function to draw calender
-function draw_calender(mon, year, lang, holiday, dates)
+// Function to draw Calendar
+function draw_Calendar(mon, year, lang, holiday, dates)
 {
     table+="<table border ='2'><thead><th colspan='7'>";
     var start_date = new Date("01-"+mon+"-"+year);
@@ -86,7 +90,7 @@ function draw_calender(mon, year, lang, holiday, dates)
     table+=start_date.toLocaleDateString(lang,{ month: 'long' })+", "+year+"</th></thead><tbody><tr>"; // write month name as a heading
     for(let i=0;i<7;i++) // write all the week names 
     {
-        let date = new Date(2023, 0, 1 + i );
+        let date = new Date(2023, 0, 1 + i );// this is taken just to print Day names like Sun,Mon etc .this has no effect on logic
         let dow = date.toLocaleDateString(lang,{weekday:'short'});
         if(i==holiday){
             table+="<td class='sunday weekdays'>"+ dow +"</td>";
