@@ -82,7 +82,7 @@ function start()
 function draw_Calendar(mon, year, lang, holiday, dates)
 {
     table+="<table border ='2'><thead><th colspan='7'>";
-    var start_date = new Date("01-"+mon+"-"+year);
+    var start_date = new Date("01-" + mon + "-" + year);
     var last_date = new Date(start_date.getFullYear(), start_date.getMonth() + 1, 0);//fetch last date of the month Date("Year", "next mont ", 0 ["if we use this we get last day of previous month"])
     var day = start_date.getDay();
     let day_element=0;
@@ -132,4 +132,33 @@ function draw_Calendar(mon, year, lang, holiday, dates)
         table +="</tr>";
     }
     table+="</tbody></table>";
+    
 }
+function convertToPDF() {
+    // Get the HTML content of the calendar
+    const calendarHTML = document.getElementById("Calendar").innerHTML;
+
+    // Wrap the HTML content in a container div with centering styles
+    const centeredHTML = `<div style="text-align: center; margin: auto;">${calendarHTML}</div>`;
+
+    // Create a new html2pdf instance
+    var pdf = new html2pdf(centeredHTML, {
+        margin: 10,
+        filename: 'calendar.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    });
+
+    // Trigger the PDF generation and download
+    pdf.from().outputPdf().then(function(pdfAsString) {
+        var blob = new Blob([pdfAsString], { type: 'application/pdf' });
+        var link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'calendar.pdf';
+        link.click();
+    });
+}
+
+
+

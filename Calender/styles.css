@@ -15,13 +15,14 @@ label {
 
 input,
 select {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     padding: 8px;
     font-size: 14px;
 }
 
 button {
     padding: 10px;
+    margin-left: 20px;
     font-size: 16px;
     cursor: pointer;
     background-color: #3498db;
@@ -33,29 +34,15 @@ button {
 button:hover {
     background-color: #45a049;
 }
-
-.file-input-container {
-    margin: -20px;
+.file-input-button {
     position: relative;
-    display: inline-block;
+    overflow: hidden;
 }
-
-.custom-file-input {
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-#fileinput {
+.file-input-button input[type="file"] {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
-    cursor: pointer;
 }
 
 th, td {

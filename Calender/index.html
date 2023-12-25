@@ -7,6 +7,10 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./styles.css">
+        
+        <!-- Add this script tag in your HTML file to include html2pdf library -->
+<script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
     </head>
     <body>
         <label>Enter year for Calendar : </label>
@@ -30,11 +34,12 @@
             <option value="es">Spanish</option>
             <option value="de">German</option>
         </select>
-        <div class="file-input-container">
-            <label class="custom-file-input" for="fileinput">Choose Holiday File</label>
+        <button class="file-input-button">
+            Choose Holiday File
             <input type="file" id="fileinput" />
-        </div>
+        </button>
         <button onclick="start()">Construct Calendar</button>
+        <button onclick="convertToPDF()">Download Calendar</button>
         <div id="Calendar">
         </div>
         <script src="./script.js"></script>
