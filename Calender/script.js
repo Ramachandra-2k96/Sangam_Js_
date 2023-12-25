@@ -110,7 +110,7 @@ function draw_Calendar(mon, year, lang, holiday, dates)
                 {
                     day_element++;
                     if(j==holiday || (dates && dates.includes(day_element))){// j=0 means it's a sunday so give the text red color and if it is in the list of holidays
-                        table+="<td class='sunday'>"+day_element+"</td>";
+                        table+="<td class='sunday'>"+day_element+"</td>"; //here sunday is just a class name that i have used to mark it as a red
                     }
                     else{   //else normal color
                         table+="<td>"+day_element+"</td>";
