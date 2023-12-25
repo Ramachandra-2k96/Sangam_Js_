@@ -132,17 +132,15 @@ function draw_Calendar(mon, year, lang, holiday, dates)
         table +="</tr>";
     }
     table+="</tbody></table>";
+    table+='<div style="page-break-after: always;"></div>'
     
 }
 function convertToPDF() {
     // Get the HTML content of the calendar
-    const calendarHTML = document.getElementById("Calendar").innerHTML;
-
-    // Wrap the HTML content in a container div with centering styles
-    const centeredHTML = `<div style="text-align: center; margin: auto;">${calendarHTML}</div>`;
+    const wrapperDiv = document.getElementById("Calendar");
 
     // Create a new html2pdf instance
-    var pdf = new html2pdf(centeredHTML, {
+    var pdf = new html2pdf(wrapperDiv, {
         margin: 10,
         filename: 'calendar.pdf',
         image: { type: 'jpeg', quality: 1 },
@@ -151,7 +149,7 @@ function convertToPDF() {
     });
 
     // Trigger the PDF generation and download
-    pdf.from().outputPdf().then(function(pdfAsString) {
+    pdf.from().then(function(pdfAsString) {
         var blob = new Blob([pdfAsString], { type: 'application/pdf' });
         var link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
@@ -159,6 +157,8 @@ function convertToPDF() {
         link.click();
     });
 }
+
+
 
 
 

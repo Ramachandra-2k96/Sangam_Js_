@@ -1,12 +1,14 @@
 div{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(1,0.5fr);
     padding: 30px;
     margin: auto;
+    justify-content: center;
 }
 table{
     padding: 12px;
     background-color: antiquewhite;
+    width: 90%;
 }
 label {
     display: block;
@@ -47,6 +49,7 @@ button:hover {
 
 th, td {
     text-align: center;
+    padding: 10px;
     border: 1px solid black; 
     min-width: 50px;
     max-width: 50px;
@@ -77,6 +80,9 @@ th{
     div{
         padding: 10px;
     }
+    .weekdays{
+        font-size:  small;
+    }
     th,td{
         font-size: small;
         padding: 6px;
@@ -86,6 +92,9 @@ th{
     div{
         padding: 15px;
     }
+    .weekdays{
+        font-size: large;
+    }
     th,td{
         font-size: large;
         padding: 8px;
@@ -94,6 +103,9 @@ th{
 @media screen and (min-width: 1024px) {
     div{
         padding: 20px;
+    }
+    .weekdays{
+        font-size: larger;
     }
     th,td{
         font-size: larger;
