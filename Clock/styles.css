@@ -1,0 +1,159 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 10px;
+  }
+.box {
+    position: relative;
+    z-index: 1;
+    width: 200px;
+    height: 200px;
+    background-color: #b7d5eb;
+    border-radius: 50%;
+    backdrop-filter: blur(25px);
+    border: 2px solid rgba(238, 236, 236, 0.2);
+}
+.number {
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+}
+.clock {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border-radius: 50%;
+    backdrop-filter: blur(25px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+.data{
+    position:fixed;
+    top: 97%;
+    left:30%;
+    
+}
+.clock::before {
+    content: "";
+    position: absolute;
+    z-index: 1000;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #f5c4c4;
+}
+.hour,
+.min,
+.sec {
+    position: absolute;
+}
+.hour,
+.hr {
+    width: 140px;
+    height: 140px;
+}
+.min,
+.mn {
+    width: 160px;
+    height: 160px;
+}
+.sec,
+.sc {
+    width:170px;
+    height: 170px;
+}
+.hr,
+.mn,
+.sc {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+}
+.hr::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 50%;
+    z-index: 11;
+    background-color: #ff87ab;
+    border-radius: 6px;
+}
+.mn::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 50%;
+    z-index: 11;
+    background-color: #adb9ea;
+    border-radius: 6px;
+}
+.sc::before {
+    content: "";
+    position: absolute;
+    width: 2.5px;
+    height: 65%;
+    z-index: 11;
+    background-color: #0fd996;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 678px) {
+    .container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-gap: 20px;
+      }
+    .box {
+        width: 250px;
+        height: 250px;
+    }
+    .hour,
+    .hr {
+        width: 130px;
+        height: 130px;
+    }
+    .min,
+    .mn {
+        width: 165px;
+        height: 165px;
+    }
+    .sec,
+    .sc {
+        width: 180px;
+        height: 180px;
+    }
+}
+@media screen and (max-width: 290px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); 
+        grid-gap: 30px;
+      }
+    .box {
+        width: 250px;
+        height: 250px;
+    }
+    .hour,
+    .hr {
+        width: 150px;
+        height: 150px;
+    }
+    .min,
+    .mn {
+        width: 160px;
+        height: 160px;
+    }
+    .sec,
+    .sc {
+        width: 180px;
+        height: 180px;
+    }
+}
