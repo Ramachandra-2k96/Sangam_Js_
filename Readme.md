@@ -1,4 +1,3 @@
-<pre>
 ```java
 // Your Java code goes here
 public class Example {
@@ -7,4 +6,3 @@ public class Example {
     }
 }
 ```
-</pre>
