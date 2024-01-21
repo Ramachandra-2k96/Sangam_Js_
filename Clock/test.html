@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Times</title>
+</head>
+<body>
+  <h1>Country Times</h1>
+  <ul id="countryTimesList"></ul>
+
+  <script>
+    async function printCountryTimes() {
+      const countries = ["America/New_York", "Europe/London", "Europe/Paris", "Europe/Madrid", "Europe/Berlin", "Asia/Tokyo", "Asia/Shanghai"];
+      const countryTimesList = document.getElementById('countryTimesList');
+
+      if (typeof Intl === 'undefined' || typeof Intl.DisplayNames === 'undefined' || typeof Intl.DisplayNames.prototype.of === 'undefined' || typeof Intl.DateTimeFormat === 'undefined') {
+        countryTimesList.innerHTML = '<li>Error: Your browser does not support the necessary features for this script.</li>';
+        return;
+      }
+
+      for (const timeZone of countries) {
+        try {
+          const countryName = new Intl.DisplayNames(['en'], { type: 'region' }).of(timeZone);
+          const timeString = new Date().toLocaleTimeString('en-US', { timeZone, hour12: false });
+
+          const listItem = document.createElement('li');
+          listItem.textContent = `${countryName}: ${timeString}`;
+          countryTimesList.appendChild(listItem);
+        } catch (error) {
+          console.error(`Error processing ${timeZone}: ${error.message}`);
+        }
+      }
+    }
+
+    printCountryTimes();
+  </script>
+</body>
+</html>

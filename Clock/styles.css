@@ -1,8 +1,19 @@
+.main {
+    text-align: center;
+    font-size: 48px;
+}
 .container {
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    grid-gap: 10px;
-  }
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    grid-gap: 40px;
+    padding: 12px;
+}
+.country{
+    text-align: center;
+    margin-top: 99%;
+    padding: 15px;
+}
 .box {
     position: relative;
     z-index: 1;
@@ -13,12 +24,14 @@
     backdrop-filter: blur(25px);
     border: 2px solid rgba(238, 236, 236, 0.2);
 }
+
 .number {
     position: absolute;
     font-size: 14px;
     font-weight: bold;
     transform: translate(-50%, -50%);
 }
+
 .clock {
     position: absolute;
     top: 10px;
@@ -33,12 +46,14 @@
     backdrop-filter: blur(25px);
     border: 2px solid rgba(255, 255, 255, 0.5);
 }
-.data{
-    position:fixed;
+
+.data {
+    position: fixed;
     top: 97%;
-    left:30%;
-    
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 .clock::before {
     content: "";
     position: absolute;
@@ -48,26 +63,31 @@
     border-radius: 50%;
     background-color: #f5c4c4;
 }
+
 .hour,
 .min,
 .sec {
     position: absolute;
 }
+
 .hour,
 .hr {
     width: 140px;
     height: 140px;
 }
+
 .min,
 .mn {
     width: 160px;
     height: 160px;
 }
+
 .sec,
 .sc {
-    width:170px;
+    width: 170px;
     height: 170px;
 }
+
 .hr,
 .mn,
 .sc {
@@ -76,6 +96,7 @@
     position: absolute;
     border-radius: 50%;
 }
+
 .hr::before {
     content: "";
     position: absolute;
@@ -85,6 +106,7 @@
     background-color: #ff87ab;
     border-radius: 6px;
 }
+
 .mn::before {
     content: "";
     position: absolute;
@@ -94,6 +116,7 @@
     background-color: #adb9ea;
     border-radius: 6px;
 }
+
 .sc::before {
     content: "";
     position: absolute;
@@ -105,55 +128,80 @@
 }
 
 @media screen and (max-width: 678px) {
-    .container {
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        grid-gap: 20px;
-      }
     .box {
-        width: 250px;
-        height: 250px;
-    }
-    .hour,
-    .hr {
-        width: 130px;
-        height: 130px;
-    }
-    .min,
-    .mn {
-        width: 165px;
-        height: 165px;
-    }
-    .sec,
-    .sc {
         width: 180px;
         height: 180px;
     }
-}
-@media screen and (max-width: 290px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr); 
-        grid-gap: 30px;
-      }
-    .box {
-        width: 250px;
-        height: 250px;
-    }
+
     .hour,
     .hr {
+        width: 120px;
+        height: 120px;
+    }
+
+    .min,
+    .mn {
         width: 150px;
         height: 150px;
     }
-    .min,
-    .mn {
+
+    .sec,
+    .sc {
         width: 160px;
         height: 160px;
     }
+}
+
+@media screen and (max-width: 480px) {
+    .box {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hour,
+    .hr {
+        width: 100px;
+        height: 100px;
+    }
+
+    .min,
+    .mn {
+        width: 130px;
+        height: 130px;
+    }
+
     .sec,
     .sc {
-        width: 180px;
-        height: 180px;
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .main {
+        text-align: center;
+        font-size: 28px;
+    }
+    .box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hour,
+    .hr {
+        width: 80px;
+        height: 80px;
+    }
+
+    .min,
+    .mn {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sec,
+    .sc {
+        width: 110px;
+        height: 110px;
     }
 }

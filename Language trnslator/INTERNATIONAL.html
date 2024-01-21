@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Calendar</title>
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      background-image: url("back.jpg");
+            background-size:cover; /* Adjust as needed */
+    background-repeat: no-repeat;
+    background-position: fixed;
+  }
+  
+  .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #ffffff92;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 30px;
+  }
+  
+  h1 {
+      text-align: center;
+      color: #3498db;
+  }
+  
+  label {
+      display: block;
+      margin: 10px 0;
+      
+  }
+  
+  select, input, button {
+      margin: 10px 0;
+  }
+  
+  .calendar {
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+  }
+  
+  .day {
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+      border-right: 1px solid #eee;
+      font-size: 16px;
+  }
+  
+  .day:last-child {
+      border-right: none;
+  }
+  
+  .day:hover {
+      background-color: #f0f0f0;
+  }
+ .month{
+    height: 303px;
+  align-items: center;
+    background-position: cover;
+ }
+  .month1 {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  
+  .week{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: 3px;
+  }
+  #button {
+    background-color: #3498db;
+    color: white;
+    border-radius: 50px;
+    border: #3498db;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 900;
+    margin-left: 200px;
+    margin-top: 200px;
+  }
+  .daysweek{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: 3px;
+  }
+  
+  .holiday {
+    color: red;
+  }
+ .elements{
+  display: flex;
+ }
+  
+   </style>
+</head>
+<body>
+    <div class="container">
+    
+        <h1>Customizable Calendar</h1>
+        <div class="elements">
+        <label for="languageDropdown">Select Language:</label>
+        <select id="languageDropdown">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="hi-IN">Hindi</option>
+            <option value="ar">Arabic</option>
+            <option value="de">German</option>
+            <option value="zh">Chinese</option>
+            <option value="ja">Japanese</option>
+        </select>
+        <br>
+        <label for="weekholiday"style="margin-left:30px;">Select Holiday:</label>
+        <select id="weekholiday">
+          <option value="0">Sunday</option>
+          <option value="1">Monday</option>
+          <option value="2">Tuesday</option>
+          <option value="3">Wednesday</option>
+          <option value="4">Thursday</option>
+          <option value="5">Friday</option>
+          <option value="6">Saturday</option>
+          
+      </select>
+
+        <br>
+      </div>
+        <label for="fileInput">Choose holiday file:</label>
+        <input type="file" id="fileInput" accept=".txt">
+        <br>
+        <label>Enter the year</label>
+        <input type="text" id="year">
+        <label for="orientationDropdown">Select Orientation:</label>
+        <select id="orientationDropdown">
+            <option value="portrait">Portrait</option>
+            <option value="landscape">Landscape</option>
+        </select>
+
+        <br>
+
+        <button onclick="highlightDates()"id="button">Preview Calendar</button>
+        <button id="button">Download Calendar</button>
+
+        <div id="calendarPreview" class="calendar"></div>
+    </div>
+
+<script src="./script.js"></script>
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+</body>
+</html>

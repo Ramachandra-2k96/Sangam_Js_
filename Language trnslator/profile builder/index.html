@@ -1,0 +1,18 @@
+{% block content %}
+<div id="blocksContainer">
+    <button onclick="addBlock()">Add Block</button>
+    <button onclick="removeBlock()">Remove Block</button>
+    <div class="block">
+    <label for="text1">Project Name:</label>
+    <input type="text" id="pname1" class="text-field">
+    <br>
+    <label for="text2">Project Description:</label>
+    <input type="text" id="pdis1" class="text-field">
+    <br>
+    <label for="photo">Photo of your project:</label>
+    <input type="file" id="photo1" class="photo-input">
+    </div>
+</div>
+
+<script src="{% static 'your_app/js/script.js' %}"></script>
+{% endblock %}
